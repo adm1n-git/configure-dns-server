@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "allowed_subnets": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/subnet"
+            },
+            "uniqueItems": true
+        },
+        "dns_listener_ip": {
+            "$ref": "#/$defs/ip"
+        },
+        "forwarders_ip": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/ip"
+            },
+            "uniqueItems": true
+        }
+    },
+    "additionalProperties": false,
+    "$defs": {
+        "ip": {
+            "type": "string",
+            "pattern": "[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}"
+        },
+        "subnet": {
+            "type": "string",
+            "pattern": "[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/[0-9]{1,2}"
+        }
+    }
+}
